@@ -1,4 +1,3 @@
-// Shipping.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -199,7 +198,8 @@ const Shipping = () => {
               )}
   
                     <button className="btn btn-success mt-3 w-100" onClick={handleSubmit}>Proceed to Payment</button>
-  
+                    <button className="btn btn-success mt-3 w-100" >Proceed to Payment</button>
+
             </div>
           </div>
         </div>
