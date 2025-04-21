@@ -1,0 +1,139 @@
+.bg-green {
+  background-color:  #4DAA95 !important;
+}
+.text-green{
+  color: #4DAA95 !important;
+}
+.text-pink{
+  color: #FD819E !important;
+}
+.btn-pink{
+  background-color:  #FD819E !important;
+}
+.nav-link-custom {
+  color: #000; /* Default link color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+/* Add this in your CSS file if needed */
+.img-thumbnail {
+  transition: transform 0.2s;
+}
+.img-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.nav-link-custom:hover {
+ /* color: #4DAA95;  Color on hover */
+ color: rgb(240, 24, 136);
+}
+.scrolling-text {
+  white-space: nowrap;
+  animation: scroll-left 20s linear infinite;
+  font-size: 1rem;
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* hover shpng info btn */
+.custom-hover:hover {
+  background-color: #4DAA95;
+  color: white;
+  transition: all 0.3s ease;
+}
+.custom-icon-color {
+  color: #FD819E;
+}
+
+/* refund policy pg */
+.refund-policy {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.refund-policy h2 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #FD819E;
+}
+
+.refund-policy p {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.refund-policy ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.terms-of-service {
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.terms-of-service h1 {
+  font-size: 2rem;
+  color: #FD819E;
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* termsofservice pg style */
+.terms-of-service h2 {
+  margin-top: 20px;
+  font-size: 1.25rem;
+  color: #444;
+}
+
+.terms-of-service p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* defaultcodes */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
