@@ -75,10 +75,6 @@ function Header() {
           </Link>
           {/* Icon Section */}
           <div className="ms-auto d-flex align-items-center gap-0 me-4">
-            {/* Search */}
-            <div className="text-center" style={{ width: "40px" }}>
-              <FaSearch title="Search" role="button" className="mx-auto d-block" size={22} />
-            </div>
 
             {/* Login/User */}
             <div className="text-center" style={{ width: "40px" }}>
