@@ -18,6 +18,9 @@ import TermsOfService from "./customer/TermsOfService";
 import CartPage from "./customer/CartPage";
 import AddToWishlist from "./customer/AddToWishlist";
 import Shipping from "./customer/Shipping";
+import OutForDelivery from "./customer/OutForDelivery";
+
+
 
 
 import AdminLogin from "./admin/AdminLogin"; 
@@ -54,7 +57,7 @@ const AppContent = () => {
           <Route path="/customer/CartPage" element={<CartPage />} />
           <Route path="/customer/AddToWishlist" element={<AddToWishlist />} />
           <Route path="/customer/Shipping" element={<Shipping />} />
-         
+          <Route path="/customer/OutForDelivery" element={<OutForDelivery />} />
 
           {/* admin only pgs */}
           <Route path="/admin/AdminLogin" element={<AdminLogin />} />

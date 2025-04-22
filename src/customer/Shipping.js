@@ -71,7 +71,7 @@ const Shipping = () => {
       toast.error("Please fill in all required fields before proceeding!", { position: "top-center", autoClose: 3000 });
       return;
     }
-  
+    
     // Validate Payment Methods
     if (paymentMethod === "debit") {
       const isCardValid = Object.values(cardDetails).every(value => value.trim() !== "");
@@ -88,7 +88,7 @@ const Shipping = () => {
       { position: "top-center", autoClose: 2000 });
 
     setTimeout(() => {
-      navigate("/customer/OrderSuccess");
+      navigate("/customer/OutForDelivery");
     }, 2500);
   };
 
@@ -198,7 +198,6 @@ const Shipping = () => {
               )}
   
                     <button className="btn btn-success mt-3 w-100" onClick={handleSubmit}>Proceed to Payment</button>
-                    <button className="btn btn-success mt-3 w-100" >Proceed to Payment</button>
 
             </div>
           </div>
