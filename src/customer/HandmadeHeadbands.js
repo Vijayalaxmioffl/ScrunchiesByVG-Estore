@@ -5,15 +5,14 @@ import { motion } from "framer-motion";
 
 const HandmadeHeadbands = () => {
   const [headbands, setHeadbands] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("productItems")) || [];
-
     const filtered = items.filter(
       (item) => item.category?.trim().toLowerCase() === "handmadeheadbands"
     );
-
     setHeadbands(filtered);
   }, []);
 
@@ -21,16 +20,35 @@ const HandmadeHeadbands = () => {
     navigate(`/customer/ViewProduct/${id}`);
   };
 
+  // Filter headbands based on search term
+  const filteredHeadbands = headbands.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <StickyNavbar />
       <div className="container py-5">
         <h2 className="text-center mb-4 text-green">Handmade Headbands</h2>
+
+        {/* Search Bar */}
+        <div className="row justify-content-center mb-4">
+          <div className="col-md-6">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search handmade headbands by name..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+        </div>
+
         <div className="row">
-          {headbands.length === 0 ? (
-            <p>No handmade headbands available.</p>
+          {filteredHeadbands.length === 0 ? (
+            <p className="text-center">No handmade headbands found.</p>
           ) : (
-            headbands.map((item, index) => (
+            filteredHeadbands.map((item, index) => (
               <motion.div
                 className="col-md-3 mb-4"
                 key={item.id}

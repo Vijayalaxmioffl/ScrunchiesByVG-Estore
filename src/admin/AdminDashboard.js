@@ -13,6 +13,7 @@ const AdminDashboard = () => {
   const [productForm, setProductForm] = useState({
     id: null,
     name: "",
+    color: "",
     description: "",
     price: "",
     category: "Scrunchies",
@@ -144,6 +145,32 @@ An unboxing video is mandatory for any product damage claims. Requests without a
               onChange={handleInputChange}
               required
             />
+          </div>
+          <div className="mb-3">
+          <label className="form-label fw-bold">Color</label>
+          <select
+            className="form-select"
+            name="color"
+            value={productForm.color}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">-- Select Color --</option>
+                  <option value="Black">Black</option>
+                  <option value="Rosegold">Rosegold</option>
+                  <option value="Golden">Golden</option>
+                  <option value="Silver">Silver</option>
+                  <option value="Blackmetal">Blackmetal</option>
+                  <option value="White">White</option>
+                  <option value="Red">Red</option>
+                  <option value="Blue">Blue</option>
+                  <option value="Green">Green</option>
+                  <option value="Yellow">Yellow</option>
+                  <option value="Purple">Purple</option>
+                  <option value="Pink">Pink</option>
+                  <option value="Orange">Orange</option>
+                  <option value="Brown">Brown</option>
+          </select>
           </div>
 
           <div className="mb-3">

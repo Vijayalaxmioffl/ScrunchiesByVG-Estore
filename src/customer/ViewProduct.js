@@ -6,6 +6,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 import SideCart from "../customer/SideCart";
+
+
 const ViewProduct = () => {
   const [product, setProduct] = useState(null);
   const [mainImageIndex, setMainImageIndex] = useState(0);
@@ -311,6 +313,45 @@ const ViewProduct = () => {
             </div>
           </div>
         </div>
+       
+        {/* Find Similar Products Section */}
+        <div className="mt-5">
+          <h4 className="mb-3 text-center text-green">✨ You may also like</h4>
+          <div className="d-flex overflow-auto pb-3" style={{ gap: "1rem" }}>
+            {
+              JSON.parse(localStorage.getItem("productItems") || "[]")
+                .filter(p => p.id !== product.id && ["bowclip", "chain", "accessory"].some(type => p.category?.toLowerCase()?.includes(type)))
+                .slice(0, 10)
+                .map((item) => (
+                    <motion.div
+                      key={item.id}
+                      className="card border-0 shadow-sm"
+                      style={{ minWidth: "170px", cursor: "pointer", borderRadius: "1rem" }}
+                      whileHover={{ scale: 1.05 }}
+                      onClick={() => {
+                        toast.success("Scroll Up to see the clicked product", {
+                          position: "top-center",
+                          autoClose: 1000,
+                          onClose: () => navigate(`/customer/ViewProduct/${item.id}`),
+                        });
+                      }}>
+                    <img
+                      src={item.images?.[0]}
+                      className="card-img-top rounded-top"
+                      alt={item.name}
+                      style={{ height: "150px", objectFit: "cover" }}
+                    />
+                    <div className="card-body text-center p-2">
+                      <p className="mb-1 fw-semibold" style={{ fontSize: "0.95rem" }}>{item.name}</p>
+                      <p className="text-success fw-bold mb-0">₹{item.price}</p>
+                    </div>
+                  </motion.div>
+                ))
+            }
+          </div>
+        </div>
+
+
       </motion.div>
     </>
   );

@@ -9,7 +9,7 @@ const OutForDelivery = () => {
 
   useEffect(() => {
     // ETA between 0 and 10
-    const randomETA = Math.floor(Math.random() * 11);
+    const randomETA = Math.floor(Math.random() * 11)+ 1;
     setEta(randomETA);
 
     // Load cart from localStorage
@@ -53,7 +53,7 @@ const OutForDelivery = () => {
                 <Popup>Order destination reached!</Popup>
               </Marker>
               {/* Polyline showing the route */}
-              <Polyline positions={route} color="blue" />
+              <Polyline positions={route} color="#f81efb" />
             </MapContainer>
           </div>
 

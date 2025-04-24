@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 const Bowclips = () => {
   const [bowclips, setBowclips] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,17 +20,35 @@ const Bowclips = () => {
     navigate(`/customer/ViewProduct/${id}`);
   };
 
+  const filteredbowclips = bowclips.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <StickyNavbar />
 
       <div className="container py-5">
         <h2 className="text-center mb-4 text-green">Our Bow Clip Collection</h2>
+
+        {/* Search Bar */}
+        <div className="row justify-content-center mb-4">
+          <div className="col-md-6">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search bowclips by name..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+        </div>
+
         <div className="row">
-          {bowclips.length === 0 ? (
-            <p>No bow clips available.</p>
+          {filteredbowclips.length === 0 ? (
+            <p className="text-center">No bow clips found.</p>
           ) : (
-            bowclips.map((item, index) => (
+            filteredbowclips.map((item, index) => (
               <motion.div
                 key={item.id || index}
                 className="col-md-3 mb-4"

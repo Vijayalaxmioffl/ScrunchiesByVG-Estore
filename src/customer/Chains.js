@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 const Chains = () => {
   const [chains, setChains] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,17 +20,35 @@ const Chains = () => {
     navigate(`/customer/ViewProduct/${id}`);
   };
 
+  const filteredChains = chains.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <StickyNavbar />
 
       <div className="container py-5">
         <h2 className="text-center mb-4 text-green">Our Chain Collections</h2>
+
+        {/* Search Bar */}
+        <div className="row justify-content-center mb-4">
+          <div className="col-md-6">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search chains by name..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+        </div>
+
         <div className="row">
-          {chains.length === 0 ? (
-            <p>No chains available.</p>
+          {filteredChains.length === 0 ? (
+            <p className="text-center">No chains found.</p>
           ) : (
-            chains.map((item, index) => (
+            filteredChains.map((item, index) => (
               <motion.div
                 key={item.id || index}
                 className="col-md-3 mb-4"
